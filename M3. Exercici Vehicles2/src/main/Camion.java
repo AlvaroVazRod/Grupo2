@@ -11,6 +11,8 @@ public class Camion extends Vehicle {
 		super(matricula, marca, color,ruedasTraseras,ruedasDelanteras,titular);
 		this.ruedasDelanteras= new Rueda[3];
 		this.ruedasTraseras= new Rueda[3];
+		comprovarDiametro(ruedasTraseras.getDiametro());
+		comprovarDiametro(ruedasDelanteras.getDiametro());
 		for (int i = 0; i < this.ruedasDelanteras.length; i++) {
 			this.ruedasDelanteras[i]=ruedasDelanteras;
 			this.ruedasTraseras[i]=ruedasTraseras;

@@ -9,6 +9,7 @@ public class Vehicle {
 	protected int numRuedas = 0;
 	protected Persona titular;
 	protected Persona[] conductor;
+	protected int numeroConductores;
 
 	public Vehicle (String matricula, String marca, String color,Rueda ruedasDelanteras2,Rueda ruedasTraseras2, Persona titular) {
 		comprovarMatricula(matricula);
@@ -16,9 +17,20 @@ public class Vehicle {
 		this.marca = marca;
 		this.color = color;
 		this.titular=titular;
-		this.conductor=new Conductor[50];
+		this.conductor=new Persona[50];
+		numeroConductores=0;
 	}
-	
+	public Vehicle (String matricula, String marca, String color,Rueda ruedasDelanteras2,Rueda ruedasTraseras2) {
+		comprovarMatricula(matricula);
+		this.matricula = matricula;
+		this.marca = marca;
+		this.color = color;
+		this.conductor=new Persona[50];
+		numeroConductores=0;
+	}
+	public void añadirTitular(Persona p) {
+		this.titular=p;
+	}
 	private String comprovarMatricula(String matricula) {
 		boolean correcto=true;
 		for (int i = 0; i < 4; i++) {
@@ -43,14 +55,15 @@ public class Vehicle {
 		return matricula;
 	}
 
-	private double comprovarDiametro(double diametro) {
+	protected double comprovarDiametro(double diametro) {
 		if (diametro > 4 || diametro < 0.4) {
 			diametro = 2;
 		}
 		return diametro;
 	}
-	public void añadirConductor() {
-		
+	public void añadirConductor(Persona p) {
+		conductor[numeroConductores]=p;
+		numeroConductores++;
 	}
 
 	@Override

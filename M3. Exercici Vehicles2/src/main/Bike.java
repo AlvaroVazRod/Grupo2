@@ -11,12 +11,14 @@ public class Bike extends Vehicle{
 		super(matricula,marca,color,ruedasTraseras,ruedasDelanteras,titular);
 		this.ruedasDelanteras= new Rueda[1];
 		this.ruedasTraseras= new Rueda[1];
+		comprovarDiametro(ruedasTraseras.getDiametro());
+		comprovarDiametro(ruedasDelanteras.getDiametro());
 		for (int i = 0; i < this.ruedasDelanteras.length; i++) {
 			this.ruedasDelanteras[i]=ruedasDelanteras;
 			this.ruedasTraseras[i]=ruedasTraseras;
 		}
 	}
-
+	
 	@Override
 	public String toString() {
 		return super.toString()+ " [ruedasTraseras=" + Arrays.toString(ruedasTraseras) + ", ruedasDelanteras="
