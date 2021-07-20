@@ -11,7 +11,6 @@ public class M3App {
 		Persona[] nuevaPersona = new Persona[50];
 		crearTitular(nuevoVehicle, nuevaPersona, numeroPersonas, numeroVehicle, numeroMaxPersonas, numeroMaxVehicle);
 		eleccion(nuevoVehicle, nuevaPersona, numeroPersonas, numeroVehicle, numeroMaxPersonas, numeroMaxVehicle);
-
 	}
 
 	public static void menu2(Vehicle[] nuevoVehicle, Persona[] nuevaPersona, int numeroPersonas, int numeroVehicle,
@@ -191,6 +190,12 @@ public class M3App {
 			break;
 		case "no":
 			nuevoVehicle[numeroVehicle] = new Coche(matricula, marca, color, ruedaDelantera, ruedaTrasera);
+			System.out.println("Quien es el titular? ");
+			for (int i = 0; i < numeroMaxPersonas - 1; i++) {
+				System.out.println(nuevaPersona[i]);
+			}
+			int elTitular = Integer.parseInt(teclat.nextLine());
+			nuevoVehicle[numeroVehicle].añadirTitular(nuevaPersona[elTitular]);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + respuesta2);
@@ -245,6 +250,12 @@ public class M3App {
 			break;
 		case "no":
 			nuevoVehicle[numeroVehicle] = new Coche(matricula, marca, color, ruedaDelantera, ruedaTrasera);
+			System.out.println("Quien es el titular? ");
+			for (int i = 0; i < numeroMaxPersonas - 1; i++) {
+				System.out.println(nuevaPersona[i]);
+			}
+			int elTitular = Integer.parseInt(teclat.nextLine());
+			nuevoVehicle[numeroVehicle].añadirTitular(nuevaPersona[elTitular]);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + respuesta2);
